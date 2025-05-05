@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Notice Board</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Virtual Notice Board</h1>
+        <div class="tabs">
+            <button id="admin-tab" class="active">Administrator</button>
+            <button id="user-tab">User</button>
+        </div>
+
+        <div id="admin-content" class="content active">
+            <form class="notice-form">
+                <input type="text" id="notice-title" placeholder="Enter notice title" required>
+                <textarea id="notice-description" placeholder="Enter notice description" rows="4" required></textarea>
+                <button type="button" id="add-notice">Add Notice</button>
+            </form>
+        </div>
+
+        <div id="user-content" class="content">
+            <div class="notices" id="notice-list">
+                <!-- Notices will appear here -->
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
