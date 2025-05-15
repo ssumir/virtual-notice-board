@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User - Virtual Notice Board</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white shadow-lg rounded-lg p-6 w-full max-w-3xl">
+        <h1 class="text-2xl font-bold text-center mb-6 text-blue-600">User - Virtual Notice Board</h1>
+        <div id="notice-list" class="space-y-4">
+            <!-- Notices will appear here -->
+        </div>
+        <a href="admin.html" class="mt-6 block text-center text-blue-600 underline">Go to Admin View</a>
+    </div>
+
+    <script>
+        const noticeList = document.getElementById('notice-list');
+
+        // Load notices from localStorage
+        const notices = JSON.parse(localStorage.getItem('notices')) || [];
+
+        if (notices.length === 0) {
+            noticeList.innerHTML = '<p class="text-gray-500 text-center">No notices available.</p>';
+        } else {
+            notices.reverse().forEach(({ title, description, date }) => {
+                const notice = document.createElement('div');
+                notice.className = 'bg-gray-100 p-4 rounded-md border border-gray-300';
+
+                const noticeDate = document.createElement('div');
+                noticeDate.className = 'text-sm text-gray-600 mb-2';
+                noticeDate.textContent = `Date: ${date}`;
+
+                const noticeTitle = document.createElement('h2');
+                noticeTitle.className = 'text-lg font-semibold text-blue-600 mb-1';
+                noticeTitle.textContent = title;
+
+                const noticeDescription = document.createElement('p');
+                noticeDescription.className = 'text-gray-700';
+                noticeDescription.textContent = description;
+
+                notice.appendChild(noticeDate);
+                notice.appendChild(noticeTitle);
+                notice.appendChild(noticeDescription);
+                noticeList.appendChild(notice);
+            });
+        }
+    </script>
+</body>
+</html>
