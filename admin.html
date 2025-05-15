@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrator - Virtual Notice Board</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white shadow-lg rounded-lg p-6 w-full max-w-3xl">
+        <h1 class="text-2xl font-bold text-center mb-6 text-blue-600">Administrator - Virtual Notice Board</h1>
+        <form id="noticeForm" class="space-y-4">
+            <div>
+                <label for="notice-title" class="block text-sm font-medium text-gray-700">Notice Title</label>
+                <input type="text" id="notice-title" class="mt-1 block w-full border-gray-300 rounded-md p-2" placeholder="Enter notice title" required>
+            </div>
+            <div>
+                <label for="notice-description" class="block text-sm font-medium text-gray-700">Notice Description</label>
+                <textarea id="notice-description" class="mt-1 block w-full border-gray-300 rounded-md p-2" rows="4" placeholder="Enter notice description" required></textarea>
+            </div>
+            <button type="button" id="add-notice" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700">Add Notice</button>
+        </form>
+        <a href="user.html" class="mt-6 block text-center text-blue-600 underline">Go to User View</a>
+    </div>
+
+    <script>
+        document.getElementById('add-notice').addEventListener('click', function () {
+            const title = document.getElementById('notice-title').value;
+            const description = document.getElementById('notice-description').value;
+            const date = new Date().toLocaleDateString();
+
+            if (!title.trim() || !description.trim()) {
+                alert('Please fill in both fields.');
+                return;
+            }
+
+            // Save to localStorage
+            const notices = JSON.parse(localStorage.getItem('notices')) || [];
+            notices.push({ title, description, date });
+            localStorage.setItem('notices', JSON.stringify(notices));
+
+            alert('Notice added successfully!');
+            document.getElementById('notice-title').value = '';
+            document.getElementById('notice-description').value = '';
+        });
+    </script>
+</body>
+</html>
