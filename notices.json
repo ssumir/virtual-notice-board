@@ -1,0 +1,5 @@
+[
+    { "message": "Meeting scheduled at 3 PM today." },
+    { "message": "Submit your reports by Friday, 5 PM." },
+    { "message": "এই বিস্তারিত নির্দেশিকাটি আপনাকে আপনার HTML কন্টেন্ট Firebase Realtime Database-এ আনতে এবং রিয়েল-টাইমে আপনার ওয়েব পৃষ্ঠায় প্রদর্শন করতে সাহায্য করবে। আপনার ডাটাবেসের নিয়মগুলি সুরক্ষিত করতে ভুলবেন না এবং সম্পূর্ণ স্ট্যাটিক ওয়েবসাইট পরিবেশনের জন্য Firebase Hosting বিবেচনা করুন।" }
+]
